@@ -1,0 +1,45 @@
+import React from 'react';
+import { Instagram, Twitter, Linkedin, Mail } from 'lucide-react';
+import { APP_NAME } from '../constants';
+
+const Footer: React.FC = () => {
+  return (
+    <footer className="bg-neutral-900 text-white py-16 border-t border-neutral-800">
+      <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-12">
+        
+        {/* Brand */}
+        <div className="flex flex-col space-y-4">
+          <h2 className="text-2xl font-serif tracking-widest">{APP_NAME}</h2>
+          <p className="text-neutral-400 text-sm leading-relaxed max-w-xs">
+            Timeless photography for those who value the art of storytelling through light and shadow.
+          </p>
+        </div>
+
+        {/* Quick Links */}
+        <div className="flex flex-col space-y-4">
+          <h3 className="text-sm uppercase tracking-widest font-semibold text-neutral-500">Contact</h3>
+          <p className="text-neutral-300">hello@lumos.photography</p>
+          <p className="text-neutral-300">+1 (555) 012-3456</p>
+          <p className="text-neutral-300">Los Angeles, CA</p>
+        </div>
+
+        {/* Social */}
+        <div className="flex flex-col space-y-4">
+          <h3 className="text-sm uppercase tracking-widest font-semibold text-neutral-500">Follow</h3>
+          <div className="flex space-x-6">
+            <a href="#" className="text-neutral-400 hover:text-white transition-colors"><Instagram size={20} /></a>
+            <a href="#" className="text-neutral-400 hover:text-white transition-colors"><Twitter size={20} /></a>
+            <a href="#" className="text-neutral-400 hover:text-white transition-colors"><Linkedin size={20} /></a>
+            <a href="#" className="text-neutral-400 hover:text-white transition-colors"><Mail size={20} /></a>
+          </div>
+        </div>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-6 mt-16 pt-8 border-t border-neutral-800 text-center text-neutral-600 text-xs tracking-wider">
+        &copy; {new Date().getFullYear()} {APP_NAME} PHOTOGRAPHY. ALL RIGHTS RESERVED.
+      </div>
+    </footer>
+  );
+};
+
+export default Footer;
