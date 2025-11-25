@@ -7,7 +7,6 @@ const KEYS = {
 };
 
 // --- DEFAULT DATA (Fallbacks in case LocalStorage is empty) ---
-// We replicate minimal defaults here to ensure the admin works even if fresh
 const DEFAULT_CONTENT = {
   tagline: "Capturing the Soul of the Moment",
   aboutImage: "https://picsum.photos/id/338/800/1200",
@@ -105,6 +104,18 @@ function initDashboard() {
   renderPortfolio();
   renderServices();
 }
+
+// Listen for About Image file changes
+document.getElementById('about-image-file').addEventListener('change', function(e) {
+  if (this.files && this.files[0]) {
+     const reader = new FileReader();
+     reader.onload = (e) => {
+       document.getElementById('about-image').value = e.target.result;
+       document.getElementById('about-image-preview').src = e.target.result;
+     };
+     reader.readAsDataURL(this.files[0]);
+  }
+});
 
 window.saveContent = function() {
   siteContent.tagline = document.getElementById('site-tagline').value;
