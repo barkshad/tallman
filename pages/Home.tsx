@@ -26,7 +26,7 @@ const Home: React.FC = () => {
             className="w-full h-full bg-cover bg-center"
             style={{ 
               backgroundImage: 'url("https://picsum.photos/id/26/1920/1080")',
-              filter: 'brightness(0.6) grayscale(100%)'
+              filter: 'brightness(0.6)'
             }}
           />
         </motion.div>
@@ -98,7 +98,7 @@ const Home: React.FC = () => {
                 <img 
                   src={img.src} 
                   alt={img.title} 
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 filter grayscale group-hover:grayscale-0"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
                   <span className="text-xs uppercase tracking-widest text-neutral-400 mb-1">{img.category}</span>
