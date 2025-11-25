@@ -1,5 +1,6 @@
 import React from 'react';
 import TransitionWrapper from '../components/TransitionWrapper';
+import { SITE_CONTENT } from '../constants';
 
 const About: React.FC = () => {
   return (
@@ -11,7 +12,7 @@ const About: React.FC = () => {
           <div className="w-full md:w-1/2">
             <div className="relative aspect-[3/4] overflow-hidden">
               <img 
-                src="https://picsum.photos/id/338/800/1200" 
+                src={SITE_CONTENT.aboutImage}
                 alt="Photographer" 
                 className="w-full h-full object-cover filter grayscale hover:grayscale-0 transition-all duration-700"
               />
@@ -28,15 +29,9 @@ const About: React.FC = () => {
             </h1>
             
             <div className="space-y-6 text-neutral-400 leading-relaxed font-light text-lg">
-              <p>
-                Founded in 2018, LUMOS began with a simple philosophy: photography should feel less like a record and more like a memory. We strip away the unnecessary, focusing on raw emotion, composition, and the natural interplay of light.
-              </p>
-              <p>
-                Our approach is distinctly minimalist and cinematic. Whether it's a high-fashion editorial or an intimate wedding, we bring a director's eye to every shoot. We don't just take pictures; we craft scenes that stand the test of time.
-              </p>
-              <p>
-                Based in Los Angeles but available worldwide, we are seekers of beauty in the brutalist and the organic alike.
-              </p>
+              {SITE_CONTENT.aboutText.map((paragraph, index) => (
+                <p key={index}>{paragraph}</p>
+              ))}
             </div>
 
             <div className="grid grid-cols-2 gap-8 pt-8 border-t border-neutral-800">

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Instagram, Twitter, Linkedin, Mail } from 'lucide-react';
-import { APP_NAME } from '../constants';
+import { APP_NAME, SITE_CONTENT } from '../constants';
 
 const Footer: React.FC = () => {
   return (
@@ -18,7 +18,7 @@ const Footer: React.FC = () => {
         {/* Quick Links */}
         <div className="flex flex-col space-y-4">
           <h3 className="text-sm uppercase tracking-widest font-semibold text-neutral-500">Contact</h3>
-          <p className="text-neutral-300">hello@lumos.photography</p>
+          <p className="text-neutral-300">{SITE_CONTENT.contactEmail}</p>
           <p className="text-neutral-300">+1 (555) 012-3456</p>
           <p className="text-neutral-300">Los Angeles, CA</p>
         </div>

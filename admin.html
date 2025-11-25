@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LUMOS | Admin Panel</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              neutral: { 900: '#171717', 800: '#262626' }
+            },
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+              serif: ['Playfair Display', 'serif'],
+            }
+          },
+        },
+      }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+      body { background-color: #050505; color: #fff; }
+      .tab-active { border-bottom: 2px solid white; color: white; }
+      .tab-inactive { color: #888; border-bottom: 2px solid transparent; }
+      .tab-inactive:hover { color: #fff; }
+      /* Hide scrollbar for gallery */
+      .no-scrollbar::-webkit-scrollbar { display: none; }
+      .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+  </head>
+  <body class="min-h-screen flex flex-col font-sans">
+    
+    <!-- Login Screen -->
+    <div id="login-screen" class="fixed inset-0 z-50 bg-black flex items-center justify-center p-4">
+      <div class="w-full max-w-md bg-neutral-900 p-8 rounded border border-neutral-800 shadow-2xl">
+        <h1 class="text-3xl font-serif text-center mb-2">LUMOS</h1>
+        <p class="text-neutral-500 text-center text-xs uppercase tracking-widest mb-8">Admin Access</p>
+        
+        <form id="login-form" class="space-y-4">
+          <div>
+            <input type="password" id="password-input" placeholder="Enter Password" 
+              class="w-full bg-black border border-neutral-800 p-3 text-white rounded focus:border-white outline-none transition-colors"
+            />
+            <p id="login-error" class="text-red-500 text-sm mt-2 hidden">Incorrect password</p>
+          </div>
+          <button type="submit" class="w-full bg-white text-black font-bold py-3 rounded hover:bg-neutral-200 transition-colors uppercase tracking-widest text-sm">
+            Enter
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Admin Dashboard (Hidden by default) -->
+    <div id="dashboard" class="hidden flex-1 flex flex-col">
+      <!-- Navbar -->
+      <nav class="bg-neutral-900 border-b border-neutral-800 sticky top-0 z-40">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+          <div class="flex items-center gap-4">
+            <h1 class="text-xl font-serif font-bold">LUMOS <span class="text-neutral-500 text-sm font-sans font-normal ml-2">/ Control Panel</span></h1>
+          </div>
+          <div class="flex items-center gap-4 text-sm">
+            <a href="/" target="_blank" class="text-neutral-400 hover:text-white transition-colors">View Site</a>
+            <button id="logout-btn" class="text-neutral-400 hover:text-red-400 transition-colors">Logout</button>
+          </div>
+        </div>
+        
+        <!-- Tabs -->
+        <div class="max-w-7xl mx-auto px-6 flex space-x-8 overflow-x-auto no-scrollbar">
+          <button class="tab-btn tab-active py-4 text-sm uppercase tracking-widest" data-tab="content">Content</button>
+          <button class="tab-btn tab-inactive py-4 text-sm uppercase tracking-widest" data-tab="portfolio">Portfolio</button>
+          <button class="tab-btn tab-inactive py-4 text-sm uppercase tracking-widest" data-tab="services">Services</button>
+        </div>
+      </nav>
+
+      <!-- Main Content Area -->
+      <main class="flex-grow bg-neutral-950 p-6">
+        <div class="max-w-7xl mx-auto">
+          
+          <!-- TAB: CONTENT -->
+          <div id="tab-content" class="tab-pane block space-y-8 animate-fade-in">
+            <div class="bg-neutral-900 p-6 rounded border border-neutral-800">
+              <h2 class="text-lg font-serif mb-6">General Information</h2>
+              <div class="space-y-4">
+                <div>
+                  <label class="block text-xs uppercase text-neutral-500 mb-1">Homepage Tagline</label>
+                  <input type="text" id="site-tagline" class="w-full bg-black border border-neutral-800 p-3 rounded text-white focus:border-white outline-none" />
+                </div>
+                <div>
+                  <label class="block text-xs uppercase text-neutral-500 mb-1">Contact Email</label>
+                  <input type="email" id="site-email" class="w-full bg-black border border-neutral-800 p-3 rounded text-white focus:border-white outline-none" />
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-neutral-900 p-6 rounded border border-neutral-800">
+              <h2 class="text-lg font-serif mb-6">About Page</h2>
+              <div class="space-y-4">
+                <div>
+                  <label class="block text-xs uppercase text-neutral-500 mb-1">About Image URL</label>
+                  <div class="flex gap-2">
+                    <input type="text" id="about-image" class="w-full bg-black border border-neutral-800 p-3 rounded text-white focus:border-white outline-none" />
+                    <img id="about-image-preview" src="" class="w-12 h-12 object-cover rounded border border-neutral-800 bg-black" />
+                  </div>
+                </div>
+                <div>
+                  <label class="block text-xs uppercase text-neutral-500 mb-1">Biography</label>
+                  <p class="text-xs text-neutral-600 mb-2">Separate paragraphs with double line breaks.</p>
+                  <textarea id="about-text" rows="8" class="w-full bg-black border border-neutral-800 p-3 rounded text-white focus:border-white outline-none"></textarea>
+                </div>
+              </div>
+            </div>
+            
+            <button onclick="saveContent()" class="bg-white text-black px-6 py-3 rounded font-bold hover:bg-neutral-200 transition-colors">
+              Save Content Changes
+            </button>
+          </div>
+
+          <!-- TAB: PORTFOLIO -->
+          <div id="tab-portfolio" class="tab-pane hidden space-y-8">
+            <!-- Add New -->
+            <div class="bg-neutral-900 p-6 rounded border border-neutral-800">
+              <h2 class="text-lg font-serif mb-4">Add New Photo</h2>
+              <div class="grid grid-cols-1 md:grid-cols-12 gap-4 items-end">
+                <div class="md:col-span-3">
+                  <label class="block text-xs uppercase text-neutral-500 mb-1">Title</label>
+                  <input type="text" id="img-title" placeholder="e.g. Urban Light" class="w-full bg-black border border-neutral-800 p-2 rounded text-white outline-none" />
+                </div>
+                <div class="md:col-span-2">
+                  <label class="block text-xs uppercase text-neutral-500 mb-1">Category</label>
+                  <select id="img-category" class="w-full bg-black border border-neutral-800 p-2 rounded text-white outline-none">
+                    <option>Portrait</option>
+                    <option>Landscape</option>
+                    <option>Fashion</option>
+                    <option>Architecture</option>
+                    <option>Editorial</option>
+                  </select>
+                </div>
+                <div class="md:col-span-5">
+                  <label class="block text-xs uppercase text-neutral-500 mb-1">Image Source</label>
+                  <div class="flex gap-2">
+                     <input type="text" id="img-url" placeholder="https://..." class="w-full bg-black border border-neutral-800 p-2 rounded text-white outline-none text-sm" />
+                     <label class="cursor-pointer bg-neutral-800 hover:bg-neutral-700 text-white px-3 py-2 rounded border border-neutral-700 flex items-center justify-center">
+                        <span class="text-xs">Upload</span>
+                        <input type="file" id="img-file" accept="image/*" class="hidden" />
+                     </label>
+                  </div>
+                </div>
+                <div class="md:col-span-2">
+                  <button onclick="addPhoto()" class="w-full bg-white text-black font-bold py-2 rounded hover:bg-neutral-200">Add</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Gallery Grid -->
+            <div id="portfolio-grid" class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4">
+              <!-- JS will populate this -->
+            </div>
+          </div>
+
+          <!-- TAB: SERVICES -->
+          <div id="tab-services" class="tab-pane hidden space-y-8">
+            <div id="services-list" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <!-- JS will populate this -->
+            </div>
+            <button onclick="saveServices()" class="bg-white text-black px-6 py-3 rounded font-bold hover:bg-neutral-200 transition-colors">
+              Save Services
+            </button>
+          </div>
+
+        </div>
+      </main>
+    </div>
+
+    <script type="module" src="./admin.js"></script>
+  </body>
+</html>

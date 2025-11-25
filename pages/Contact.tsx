@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Send } from 'lucide-react';
 import TransitionWrapper from '../components/TransitionWrapper';
 import Button from '../components/Button';
+import { SITE_CONTENT } from '../constants';
 
 const Contact: React.FC = () => {
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success'>('idle');
@@ -30,7 +31,7 @@ const Contact: React.FC = () => {
             <div className="space-y-8">
               <div>
                 <h3 className="text-xs uppercase tracking-widest text-neutral-500 mb-2">Email</h3>
-                <p className="text-xl">hello@lumos.photography</p>
+                <p className="text-xl">{SITE_CONTENT.contactEmail}</p>
               </div>
               <div>
                 <h3 className="text-xs uppercase tracking-widest text-neutral-500 mb-2">Studio</h3>

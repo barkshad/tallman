@@ -3,7 +3,7 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import Button from '../components/Button';
 import TransitionWrapper from '../components/TransitionWrapper';
-import { TAGLINE, PORTFOLIO_ITEMS } from '../constants';
+import { SITE_CONTENT, PORTFOLIO_ITEMS } from '../constants';
 
 const Home: React.FC = () => {
   const { scrollY } = useScroll();
@@ -47,7 +47,7 @@ const Home: React.FC = () => {
             transition={{ delay: 0.6, duration: 0.8 }}
             className="text-sm md:text-lg uppercase tracking-[0.3em] text-neutral-300 mb-10"
           >
-            {TAGLINE}
+            {SITE_CONTENT.tagline}
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 20 }}

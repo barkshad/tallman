@@ -25,3 +25,10 @@ export interface NavItem {
   label: string;
   path: string;
 }
+
+export interface SiteContent {
+  tagline: string;
+  aboutText: string[];
+  aboutImage: string;
+  contactEmail: string;
+}
