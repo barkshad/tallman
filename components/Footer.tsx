@@ -1,5 +1,6 @@
 import React from 'react';
-import { Instagram, Twitter, Linkedin, Mail } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { Instagram, Twitter, Linkedin, Mail, Lock } from 'lucide-react';
 import { APP_NAME, SITE_CONTENT } from '../constants';
 
 const Footer: React.FC = () => {
@@ -35,8 +36,13 @@ const Footer: React.FC = () => {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 mt-16 pt-8 border-t border-neutral-800 text-center text-neutral-600 text-xs tracking-wider">
-        &copy; {new Date().getFullYear()} {APP_NAME} PHOTOGRAPHY. ALL RIGHTS RESERVED.
+      <div className="max-w-7xl mx-auto px-6 mt-16 pt-8 border-t border-neutral-800 flex flex-col md:flex-row justify-between items-center text-center md:text-left">
+        <div className="text-neutral-600 text-xs tracking-wider mb-4 md:mb-0">
+          &copy; {new Date().getFullYear()} {APP_NAME} PHOTOGRAPHY. ALL RIGHTS RESERVED.
+        </div>
+        <Link to="/admin" className="text-neutral-800 hover:text-neutral-600 transition-colors flex items-center gap-1 text-xs uppercase tracking-widest">
+          <Lock size={12} /> Admin
+        </Link>
       </div>
     </footer>
   );

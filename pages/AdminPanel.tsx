@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { Lock, Save, Trash2, Plus, Image as ImageIcon, Type, LogOut, Briefcase, MessageSquare } from 'lucide-react';
 import { PORTFOLIO_ITEMS, SITE_CONTENT, SERVICES, TESTIMONIALS, KEYS } from '../constants';
 import { Photo, SiteContent, ServicePackage, Testimonial } from '../types';
@@ -44,6 +45,8 @@ const AdminPanel: React.FC = () => {
   const saveContent = () => {
     localStorage.setItem(KEYS.CONTENT, JSON.stringify(content));
     alert('Text Content Saved!');
+    // Force reload to update constants if needed, though state drives this view
+    // In a real app with context, this would update automatically
   };
 
   const savePortfolio = () => {
@@ -136,7 +139,7 @@ const AdminPanel: React.FC = () => {
 
   if (!isAuthenticated) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-black text-white p-4">
+      <div className="pt-32 pb-20 min-h-screen flex items-center justify-center bg-black text-white px-4">
         <div className="w-full max-w-md bg-neutral-900 p-8 rounded border border-neutral-800">
           <div className="flex justify-center mb-6 text-neutral-400">
             <Lock size={48} />
@@ -160,12 +163,12 @@ const AdminPanel: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen bg-neutral-950 text-white font-sans pb-20">
-      <nav className="bg-neutral-900 border-b border-neutral-800 p-4 sticky top-0 z-50">
+    <div className="pt-24 min-h-screen bg-neutral-950 text-white font-sans pb-20">
+      <nav className="bg-neutral-900 border-b border-neutral-800 p-4 sticky top-0 z-40">
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           <h1 className="text-xl font-serif font-bold">LUMOS <span className="text-neutral-500 text-sm font-sans font-normal ml-2">/ Control Panel</span></h1>
           <div className="flex items-center gap-4">
-             <a href="/" target="_blank" className="text-sm text-neutral-400 hover:text-white border-b border-transparent hover:border-white">View Site</a>
+             <Link to="/" className="text-sm text-neutral-400 hover:text-white border-b border-transparent hover:border-white">View Site</Link>
              <button onClick={handleLogout} className="flex items-center text-sm text-neutral-400 hover:text-white">
                <LogOut size={16} className="mr-2" /> Logout
              </button>
