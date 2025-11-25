@@ -3,7 +3,7 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import Button from '../components/Button';
 import TransitionWrapper from '../components/TransitionWrapper';
-import { SITE_CONTENT, PORTFOLIO_ITEMS } from '../constants';
+import { SITE_CONTENT, PORTFOLIO_ITEMS, APP_NAME } from '../constants';
 
 const Home: React.FC = () => {
   const { scrollY } = useScroll();
@@ -37,9 +37,9 @@ const Home: React.FC = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.8 }}
-            className="text-5xl md:text-7xl lg:text-9xl font-serif font-bold text-white tracking-tighter mb-6"
+            className="text-5xl md:text-7xl lg:text-9xl font-serif font-bold text-white tracking-tighter mb-6 uppercase"
           >
-            LUMOS
+            {APP_NAME}
           </motion.h1>
           <motion.p 
             initial={{ opacity: 0 }}

@@ -1,6 +1,6 @@
 import React from 'react';
 import TransitionWrapper from '../components/TransitionWrapper';
-import { SITE_CONTENT } from '../constants';
+import { SITE_CONTENT, APP_NAME } from '../constants';
 
 const About: React.FC = () => {
   return (
@@ -17,7 +17,7 @@ const About: React.FC = () => {
                 className="w-full h-full object-cover filter grayscale hover:grayscale-0 transition-all duration-700"
               />
               <div className="absolute bottom-0 right-0 bg-white text-black px-6 py-2">
-                <p className="text-xs uppercase tracking-widest font-bold">Lumos Founder</p>
+                <p className="text-xs uppercase tracking-widest font-bold">{APP_NAME}</p>
               </div>
             </div>
           </div>

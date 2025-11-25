@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Lock, Save, Trash2, Plus, Image as ImageIcon, Type, LogOut, Briefcase, MessageSquare } from 'lucide-react';
-import { PORTFOLIO_ITEMS, SITE_CONTENT, SERVICES, TESTIMONIALS, KEYS } from '../constants';
+import { PORTFOLIO_ITEMS, SITE_CONTENT, SERVICES, TESTIMONIALS, KEYS, APP_NAME } from '../constants';
 import { Photo, SiteContent, ServicePackage, Testimonial } from '../types';
 
 type Tab = 'text' | 'portfolio' | 'services' | 'testimonials';
@@ -166,7 +166,7 @@ const AdminPanel: React.FC = () => {
     <div className="pt-24 min-h-screen bg-neutral-950 text-white font-sans pb-20">
       <nav className="bg-neutral-900 border-b border-neutral-800 p-4 sticky top-0 z-40">
         <div className="max-w-7xl mx-auto flex justify-between items-center">
-          <h1 className="text-xl font-serif font-bold">LUMOS <span className="text-neutral-500 text-sm font-sans font-normal ml-2">/ Control Panel</span></h1>
+          <h1 className="text-xl font-serif font-bold">{APP_NAME} <span className="text-neutral-500 text-sm font-sans font-normal ml-2">/ Control Panel</span></h1>
           <div className="flex items-center gap-4">
              <Link to="/" className="text-sm text-neutral-400 hover:text-white border-b border-transparent hover:border-white">View Site</Link>
              <button onClick={handleLogout} className="flex items-center text-sm text-neutral-400 hover:text-white">

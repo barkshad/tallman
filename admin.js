@@ -1,9 +1,9 @@
 // --- KEYS (Must match constants.ts) ---
 const KEYS = {
-  PORTFOLIO: 'LUMOS_PORTFOLIO',
-  SERVICES: 'LUMOS_SERVICES',
-  TESTIMONIALS: 'LUMOS_TESTIMONIALS',
-  CONTENT: 'LUMOS_CONTENT'
+  PORTFOLIO: 'TALL_ALTINAY_PORTFOLIO',
+  SERVICES: 'TALL_ALTINAY_SERVICES',
+  TESTIMONIALS: 'TALL_ALTINAY_TESTIMONIALS',
+  CONTENT: 'TALL_ALTINAY_CONTENT'
 };
 
 // --- DEFAULT DATA (Fallbacks in case LocalStorage is empty) ---
@@ -11,9 +11,9 @@ const KEYS = {
 const DEFAULT_CONTENT = {
   tagline: "Capturing the Soul of the Moment",
   aboutImage: "https://picsum.photos/id/338/800/1200",
-  contactEmail: "hello@lumos.photography",
+  contactEmail: "hello@tallaltinay.com",
   aboutText: [
-    "Founded in 2018, LUMOS began with a simple philosophy: photography should feel less like a record and more like a memory.",
+    "Tall began with a simple philosophy: photography should feel less like a record and more like a memory.",
     "Our approach is distinctly minimalist and cinematic."
   ]
 };

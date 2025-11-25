@@ -1,6 +1,11 @@
 import { Photo, ServicePackage, Testimonial, SiteContent } from './types';
 
-export const APP_NAME = "LUMOS";
+export const APP_NAME = "Tall";
+
+export const SOCIAL_LINKS = {
+  instagram: "https://www.instagram.com/tall_altinay?igsh=aHllb3N2c2FqNjlq",
+  whatsapp: "https://wa.me/254718507972"
+};
 
 // --- DEFAULT DATA (Fallbacks) ---
 
@@ -42,13 +47,13 @@ const DEFAULT_TESTIMONIALS: Testimonial[] = [
     id: 1,
     name: "Sarah Jenkins",
     role: "Art Director, Vogue",
-    text: "Lumos has an incredible eye for light and composition. The photos delivered were nothing short of breathtaking."
+    text: "Tall has an incredible eye for light and composition. The photos delivered were nothing short of breathtaking."
   },
   {
     id: 2,
     name: "Marcus Thorne",
     role: "CEO, TechFlow",
-    text: "Professional, punctual, and highly creative. We've used Lumos for all our corporate branding and couldn't be happier."
+    text: "Professional, punctual, and highly creative. We've used Tall for all our corporate branding and couldn't be happier."
   },
   {
     id: 3,
@@ -61,20 +66,20 @@ const DEFAULT_TESTIMONIALS: Testimonial[] = [
 const DEFAULT_CONTENT: SiteContent = {
   tagline: "Capturing the Soul of the Moment",
   aboutImage: "https://picsum.photos/id/338/800/1200",
-  contactEmail: "hello@lumos.photography",
+  contactEmail: "hello@tallaltinay.com",
   aboutText: [
-    "Founded in 2018, LUMOS began with a simple philosophy: photography should feel less like a record and more like a memory. We strip away the unnecessary, focusing on raw emotion, composition, and the natural interplay of light.",
-    "Our approach is distinctly minimalist and cinematic. Whether it's a high-fashion editorial or an intimate wedding, we bring a director's eye to every shoot. We don't just take pictures; we craft scenes that stand the test of time.",
-    "Based in Los Angeles but available worldwide, we are seekers of beauty in the brutalist and the organic alike."
+    "Tall began with a simple philosophy: photography should feel less like a record and more like a memory. We strip away the unnecessary, focusing on raw emotion, composition, and the natural interplay of light.",
+    "My approach is distinctly minimalist and cinematic. Whether it's a high-fashion editorial or an intimate wedding, I bring a director's eye to every shoot. I don't just take pictures; I craft scenes that stand the test of time.",
+    "Based in Los Angeles but available worldwide, I am a seeker of beauty in the brutalist and the organic alike."
   ]
 };
 
 // --- STORAGE KEYS ---
 export const KEYS = {
-  PORTFOLIO: 'LUMOS_PORTFOLIO',
-  SERVICES: 'LUMOS_SERVICES',
-  TESTIMONIALS: 'LUMOS_TESTIMONIALS',
-  CONTENT: 'LUMOS_CONTENT'
+  PORTFOLIO: 'TALL_ALTINAY_PORTFOLIO',
+  SERVICES: 'TALL_ALTINAY_SERVICES',
+  TESTIMONIALS: 'TALL_ALTINAY_TESTIMONIALS',
+  CONTENT: 'TALL_ALTINAY_CONTENT'
 };
 
 // --- LOAD DATA (With LocalStorage check) ---
